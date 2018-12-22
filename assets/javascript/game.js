@@ -1,5 +1,6 @@
-var number = Math.floor(Math.random() * 100);
-var usertotal = 0;
+
+var number = Math.floor((Math.random() * 100) + 20);
+
 var jewelOne = Math.floor((Math.random() * 20) + 2);
 var jewelTwo = Math.floor((Math.random() * 20) + 2);
 var jewelThree = Math.floor((Math.random() * 20) + 2);
@@ -31,9 +32,47 @@ console.log(number)
     //console.log(assign);
 }*/
 
-$(".jewel").on("click", function(){     
-    ///*assignNumber();
-    $("#yourScore").text(yourScore);
-    console.log();
+$("#jewel").on("click", function(){     
+    updateScore(jewelOne); 
 });
 
+$("#jewel1").on("click", function(){     
+    updateScore(jewelTwo); 
+});
+
+$("#jewel2").on("click", function(){     
+    updateScore(jewelThree); 
+});
+
+$("#jewel3").on("click", function(){     
+    updateScore(jewelFour); 
+});
+
+function updateScore (jewelCount){
+    yourScore += jewelCount;
+    $("#yourScore").text(yourScore);
+   
+    if(yourScore === number ){
+        wins++;
+        $("#wins").text(wins);
+        reset();
+    }
+    else if(yourScore > number){
+        losses++;
+        $("#losses").text(losses);
+        reset();
+    }
+}
+
+function reset(){
+    
+    number = Math.floor((Math.random() * 100) + 20);
+    $("#number").text(number);
+    jewelOne = Math.floor((Math.random() * 20) + 2);
+    jewelTwo = Math.floor((Math.random() * 20) + 2);
+    jewelThree = Math.floor((Math.random() * 20) + 2);
+    jewelFour = Math.floor((Math.random() * 20) + 2);
+    yourScore = 0;
+    $("#yourScore").text(yourScore);
+
+}

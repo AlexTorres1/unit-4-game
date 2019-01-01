@@ -9,6 +9,11 @@ var losses = 0;
 var wins = 0;
 var yourScore = 0;
 
+//audio variable
+var winner = document.getElementById("tada")
+
+
+
 $("#yourScore").text(yourScore);
 $("#losses").text(losses);
 $("#wins").text(wins);
@@ -48,30 +53,40 @@ $("#jewel3").on("click", function(){
     updateScore(jewelFour); 
 });
 
+function winnerAudio(){
+    winner.play();
+}
+
 function updateScore (jewelCount){
     yourScore += jewelCount;
     $("#yourScore").text(yourScore);
    
     if(yourScore === number ){
+        winnerAudio();
         wins++;
         $("#wins").text(wins);
+        alert("Winner!!!");
         reset();
     }
     else if(yourScore > number){
         losses++;
+        alert("Sorry, you lose.  Try again!");
         $("#losses").text(losses);
+        //alert("Sorry, you lose.  Try again!");
         reset();
     }
 }
 
+
+
 function reset(){
     
-    number = Math.floor((Math.random() * 100) + 20);
+    number = Math.floor((Math.random() * 20) + 2);
     $("#number").text(number);
-    jewelOne = Math.floor((Math.random() * 20) + 2);
-    jewelTwo = Math.floor((Math.random() * 20) + 2);
-    jewelThree = Math.floor((Math.random() * 20) + 2);
-    jewelFour = Math.floor((Math.random() * 20) + 2);
+    jewelOne = Math.floor((Math.random() * 5) + 1);
+    jewelTwo = Math.floor((Math.random() * 5) + 1);
+    jewelThree = Math.floor((Math.random() * 5) + 1);
+    jewelFour = Math.floor((Math.random() * 5) + 1);
     yourScore = 0;
     $("#yourScore").text(yourScore);
 

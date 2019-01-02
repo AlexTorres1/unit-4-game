@@ -1,4 +1,9 @@
 body{
-
+    background-image: url("../images/back.jpg");
     padding-top: 10px;
 }
+
+/*.jumbotron{
+    border: 1px solid rgba(0,0,0,.125);
+    border-color: #007bff;
+}*/

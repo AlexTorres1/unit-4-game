@@ -11,6 +11,8 @@ var yourScore = 0;
 
 //audio variable
 var winner = document.getElementById("tada")
+var looser = document.getElementById("youLose")
+
 
 
 
@@ -32,10 +34,6 @@ console.log(jewelFour);
 console.log(number)
 };
 
-/*function assignNumber(assign){
-    assign = Math.floor((Math.random() * 20) + 2);
-    //console.log(assign);
-}*/
 
 $("#jewel").on("click", function(){     
     updateScore(jewelOne); 
@@ -57,22 +55,38 @@ function winnerAudio(){
     winner.play();
 }
 
+function looserAudio(){
+    looser.play();
+}
+
+function popup(){
+    $( "#myModal" ).modal();
+}
+
+function lostPopup(){
+    $( "#lostModal" ).modal();
+}
+
 function updateScore (jewelCount){
     yourScore += jewelCount;
     $("#yourScore").text(yourScore);
    
     if(yourScore === number ){
+        
         winnerAudio();
-        wins++;
+        wins++;        
         $("#wins").text(wins);
-        alert("Winner!!!");
+        //alert("Winner!!!");
+        popup();
         reset();
     }
     else if(yourScore > number){
+        looserAudio();
         losses++;
-        alert("Sorry, you lose.  Try again!");
+       //alert("Sorry, you lose.  Try again!");
         $("#losses").text(losses);
         //alert("Sorry, you lose.  Try again!");
+        lostPopup();
         reset();
     }
 }

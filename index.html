@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card border-primary mb-2">
-          <h3 class="card-header bg-transparent border-primary text-primary text-center"><button type="button" class="btn btn-primary" id="startGame">Click to generate  game</button></h3>
+          <h3 class="card-header bg-transparent border-primary text-primary text-center"><button type="button" class="btn btn-primary" id="startGame">Click to start game</button></h3>
           <h3 class="card-header bg-transparent border-primary text-primary text-center">Each crystal will produce a number when you click it</h3>
           
           <div class="card-body text-primary text-center">
@@ -69,8 +69,53 @@
 
   </div>
 
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <!--<div class="modal-header">          
+          <h4 class="modal-title text-center">Winner!!!</h4>
+        </div>-->
+        <div class="modal-body text-primary text-center">
+          <p>Winnner winner, chicken dinner!</p>
+          <img src="https://media1.tenor.com/images/66286c21e00a4ef6707abb4bfe19dcb3/tenor.gif?itemid=5093088">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="modal fade" id="lostModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <!--<div class="modal-header">          
+          <h4 class="modal-title text-center">Winner!!!</h4>
+        </div>-->
+        <div class="modal-body text-primary text-center">
+          <p>You lose.  Try again!</p>
+          <!--<img src="./assets/images/lost.png">-->
+          <img src="https://media1.tenor.com/images/0fc11f72b8c48ebc579fe6dead9d9bae/tenor.gif?itemid=7539569">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 <audio id="tada">
   <source src="./assets/audio/Ta Da-SoundBible.com-1884170640.mp3" type="audio/mp3">
+</audio>
+
+<audio id="youLose">
+  <source src="./assets/audio/Sad_Trombone-Joe_Lamb-665429450.mp3" type="audio/mp3">
 </audio>
 
 <script>

@@ -1,6 +1,6 @@
 
+//All the necessary variables to store to the info
 var number = Math.floor((Math.random() * 100) + 20);
-
 var jewelOne = Math.floor((Math.random() * 20) + 2);
 var jewelTwo = Math.floor((Math.random() * 20) + 2);
 var jewelThree = Math.floor((Math.random() * 20) + 2);
@@ -13,9 +13,7 @@ var yourScore = 0;
 var winner = document.getElementById("tada")
 var looser = document.getElementById("youLose")
 
-
-
-
+//To write to the page the score-losses-wins
 $("#yourScore").text(yourScore);
 $("#losses").text(losses);
 $("#wins").text(wins);
@@ -24,6 +22,7 @@ $("#startGame").on("click", function(){
     startGame();
 });
 
+//Function to start the game
 function startGame(){
 $("#number").text(number);
 
@@ -34,7 +33,7 @@ console.log(jewelFour);
 console.log(number)
 };
 
-
+//Created the jewel clicks.  Wanted to bring this down to a single function but have had trouble getting it to work.  
 $("#jewel").on("click", function(){     
     updateScore(jewelOne); 
 });
@@ -51,6 +50,7 @@ $("#jewel3").on("click", function(){
     updateScore(jewelFour); 
 });
 
+//Added audio to winner and loser
 function winnerAudio(){
     winner.play();
 }
@@ -58,7 +58,7 @@ function winnerAudio(){
 function looserAudio(){
     looser.play();
 }
-
+//Created a modal to popup after a win/lose
 function popup(){
     $( "#myModal" ).modal();
 }
@@ -67,6 +67,7 @@ function lostPopup(){
     $( "#lostModal" ).modal();
 }
 
+//Function to update the score-losses-wins and bring up the popup-audio and reset
 function updateScore (jewelCount){
     yourScore += jewelCount;
     $("#yourScore").text(yourScore);
@@ -76,23 +77,19 @@ function updateScore (jewelCount){
         winnerAudio();
         wins++;        
         $("#wins").text(wins);
-        //alert("Winner!!!");
         popup();
         reset();
     }
     else if(yourScore > number){
         looserAudio();
         losses++;
-       //alert("Sorry, you lose.  Try again!");
         $("#losses").text(losses);
-        //alert("Sorry, you lose.  Try again!");
         lostPopup();
         reset();
     }
 }
 
-
-
+//Reset function
 function reset(){
     
     number = Math.floor((Math.random() * 20) + 2);
